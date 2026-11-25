@@ -71,7 +71,7 @@ function MenuGroup({ title, entries, topLevel = false, onOpen, onTopic, label })
                 <button
                   type="button"
                   className="topic-link"
-                  onClick={() => onTopic(label)}
+                  onClick={() => { if (["Anaesthesiology","Anatomy","Biochemistry","Community Medicine","Dentistry","Dermatology","Forensic Medicine","General Medicine","General Surgery","Microbiology","Obstetrics and Gynecology","Ophthalmology","Orthopedics","Otolaryngology","Paediatrics","Pathology","Pharmacology","Physiology","Psychiatry","Radiodiagnosis","Hospital Side","Hospital Details","Fee Regulatory Committee"].includes(label)) location.href = "/?comingSoon=" + encodeURIComponent(label); else onTopic(label); }}
                 >
                   {label}
                 </button>
@@ -207,7 +207,7 @@ export function Header() {
               type="button"
               className="topic-link"
               onPointerEnter={clearOnHover}
-              onClick={() => setTopic("Hospital Details")}
+              onClick={() => { location.href = "/?comingSoon=Hospital%20Details"; }}
             >
               <span className="compact-nav-label">Hospital<br />Details</span>
             </button>

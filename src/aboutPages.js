@@ -128,11 +128,13 @@ export const aboutPages = {
   },
   "citizen-charter": {
     title: "Citizen Charter",
+    comingSoon: true,
     centeredNotice: true,
     intro: "The Mahisagar Citizen Charter will be available here once it is published.",
   },
   "affiliation-intake": {
     title: "Affiliation Letter / Intake Letter",
+    comingSoon: true,
     centeredNotice: true,
     intro:
       "NMC approval is pending for the proposed Mahisagar college. Mahisagar affiliation and sanctioned intake documents will be posted here when available.",

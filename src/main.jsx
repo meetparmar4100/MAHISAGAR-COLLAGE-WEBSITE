@@ -17,6 +17,8 @@ function App() {
   const [, slug, subpage] = location.pathname.split("/");
   const information = Object.hasOwn(aboutPages, slug) ? aboutPages[slug] : null;
   let page = <HomePage />;
+  const pendingTitle = new URLSearchParams(location.search).get("comingSoon");
+  if (["Anaesthesiology","Anatomy","Biochemistry","Community Medicine","Dentistry","Dermatology","Forensic Medicine","General Medicine","General Surgery","Microbiology","Obstetrics and Gynecology","Ophthalmology","Orthopedics","Otolaryngology","Paediatrics","Pathology","Pharmacology","Physiology","Psychiatry","Radiodiagnosis","Hospital Side","Hospital Details","Fee Regulatory Committee"].includes(pendingTitle)) page = <AboutInformation page={{ title: pendingTitle, comingSoon: true }} />;
   if (slug === "gallery" && subpage === "events") page = <EventsPage />;
   if (slug === "gallery" && subpage === "college-side") page = <CollegeGallery />;
   if (slug === "info-as-per-nmc") page = <NmcInformation />;
