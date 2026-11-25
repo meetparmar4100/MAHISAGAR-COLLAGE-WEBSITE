@@ -37,6 +37,7 @@ export default defineConfig({
         infrastructure: fileURLToPath(new URL("./infrastructure/index.html", import.meta.url)),
         galleryEvents: fileURLToPath(new URL("./gallery/events/index.html", import.meta.url)),
         galleryCollege: fileURLToPath(new URL("./gallery/college-side/index.html", import.meta.url)),
+        nmcInformation: fileURLToPath(new URL("./info-as-per-nmc/index.html", import.meta.url)),
         home: fileURLToPath(new URL("./index.html", import.meta.url)),
         about: fileURLToPath(new URL("./about-college/index.html", import.meta.url)),
       },

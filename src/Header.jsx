@@ -207,7 +207,7 @@ export function Header() {
               type="button"
               className="topic-link"
               onPointerEnter={clearOnHover}
-              onClick={() => setTopic("Info As Per NMC")}
+              onClick={() => { location.href = "/info-as-per-nmc/"; }}
             >
               <span className="compact-nav-label">Info As Per<br />NMC</span>
             </button>

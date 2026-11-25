@@ -1,3 +1,4 @@
+import { NmcInformation } from "./NmcInformation.jsx";
 import { EventsPage } from "./EventsPage.jsx";
 import { CollegeGallery } from "./CollegeGallery.jsx";
 import { CommitteesPage } from "./CommitteesPage.jsx";
@@ -18,6 +19,7 @@ function App() {
   let page = <HomePage />;
   if (slug === "gallery" && subpage === "events") page = <EventsPage />;
   if (slug === "gallery" && subpage === "college-side") page = <CollegeGallery />;
+  if (slug === "info-as-per-nmc") page = <NmcInformation />;
   if (slug === "about-college") page = <AboutCollege />;
   if (information) page = <AboutInformation page={information} />;
   if (slug === "academics" && Object.hasOwn(academicPages, subpage)) {

@@ -1921,3 +1921,21 @@ html:has(.home-sections) {
 .news-notifications-table .news-empty{padding:20px 16px}
 @media(min-width:761px) and (max-height:850px){.events-wrap:has(.news-notifications){padding-top:8px}.events-wrap:has(.news-notifications) .events-tabs{margin-bottom:8px}.news-notifications-intro{margin-bottom:10px}.news-notifications-intro p{font-size:.8rem}.news-notifications-table td{padding-block:5px}}
 @media(max-width:600px){.events-wrap:has(.news-notifications){width:calc(100% - 24px)}.news-notifications-table th,.news-notifications-table td{padding:8px}.events-wrap:has(.news-notifications) .events-tabs button{padding:8px 12px}}
+
+.nmc-information-page{background:#f6f8f6}
+.nmc-information-content{padding-block:18px 34px}
+.nmc-information-note{margin:0 0 14px;color:#526778;font-size:.9rem}
+.nmc-information-note p{margin:0}
+.nmc-information-box{background:#fff;border:1px solid #d9e5e1;border-radius:14px;overflow-x:auto;box-shadow:0 4px 16px #0928390b}
+.nmc-information-table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:640px;font:400 .9rem/1.5 system-ui,sans-serif;color:#19384a}
+.nmc-information-table thead{background:#092839;color:white}
+.nmc-information-table thead th{font-weight:650;text-align:left;padding:13px 16px;border-right:1px solid #ffffff30}
+.nmc-information-table th:first-child{width:7%;text-align:center}
+.nmc-information-table th:nth-child(2){width:48%}
+.nmc-information-table th:nth-child(3){width:45%}
+.nmc-information-table tbody th,.nmc-information-table tbody td{font-weight:400;text-align:left;padding:12px 16px;border-bottom:1px solid #dce6e2;border-right:1px solid #dce6e2;overflow-wrap:anywhere}
+.nmc-information-table tbody td:first-child{text-align:center;color:#526778}
+.nmc-information-table tbody tr:nth-child(even){background:#f7faf9}
+.nmc-information-table tbody tr:last-child>*{border-bottom:0}
+.nmc-information-table .nmc-answer{min-height:42px}
+@media(max-width:760px){.nmc-information-table{font-size:.82rem}.nmc-information-table tbody th,.nmc-information-table tbody td,.nmc-information-table thead th{padding:10px}.nmc-information-content{padding-block:12px 24px}}
