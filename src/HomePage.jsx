@@ -56,6 +56,19 @@ export function HomePage() {
             Medical Commission (NMC) for MBBS seats. Approval is pending.
           </p>
         </div>
+        <section className="home-about-section" aria-labelledby="home-about-heading">
+          <div className="wrap home-about-layout" data-home-reveal>
+            <figure className="home-about-photo">
+              <img src={homeBanner} alt="Swaminarayan Medical College group photograph" loading="lazy" decoding="async" />
+            </figure>
+            <div className="home-about-copy">
+              <p className="home-about-eyebrow">About Swaminarayan Medical College, Mahisagar</p>
+              <h2 id="home-about-heading">Building tomorrow's healthcare leaders</h2>
+              <p>Swaminarayan Medical College, Mahisagar aims to create a supportive learning environment that combines academic knowledge, practical training and community health. Our vision is to nurture compassionate, responsible healthcare professionals committed to serving society.</p>
+              <a className="home-about-link" href="/about-college/">Find out more</a>
+            </div>
+          </div>
+        </section>
         <section className="mbbs-section" aria-labelledby="mbbs-heading">
           <div className="wrap mbbs-layout" data-home-reveal>
             <figure className="mbbs-photo">
