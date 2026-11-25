@@ -32,3 +32,26 @@
 .about-feature-copy p{font:inherit;line-height:1.65;margin:0 0 12px}
 .about-feature-copy .about-feature-label{font-size:.8rem;font-weight:750;letter-spacing:.15em}
 .about-feature-status h2{font:750 1.5rem/1.25 system-ui,sans-serif}
+
+.college-gallery{background:#f8f5ef}
+.college-gallery-content{padding-block:clamp(24px,3vw,48px)}
+.gallery-kicker{display:inline-block;border:1px solid #efca88;border-radius:30px;background:#fff2db;color:#a65a10;padding:5px 14px;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+.college-gallery-content>h2{font:750 clamp(1.8rem,3.5vw,3rem)/1.15 system-ui,sans-serif;color:#092839;margin:16px 0 28px}
+.college-gallery-content>h2 em{color:#ad6519;font-family:Georgia,serif;font-weight:500}
+.college-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,28px)}
+.college-gallery-card{display:block;position:relative;overflow:hidden;aspect-ratio:1.45;border:1px solid #ddd5c8;border-radius:18px;padding:0;background:#eee;cursor:zoom-in;box-shadow:0 3px 8px #09283912;text-align:left}
+.college-gallery-card img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .35s ease}
+.college-gallery-card:hover img,.college-gallery-card:focus-visible img{transform:scale(1.045)}
+.gallery-zoom,.gallery-caption{position:absolute;color:#fff;opacity:0;transition:opacity .2s ease}
+.gallery-zoom{right:12px;top:12px;background:#fff;color:#092839;border-radius:50%;width:36px;height:36px;display:grid;place-items:center;font-size:1.3rem}
+.gallery-caption{bottom:0;left:0;right:0;background:linear-gradient(transparent,#092839b8);padding:32px 16px 16px;font-weight:650}
+.college-gallery-card:hover .gallery-zoom,.college-gallery-card:hover .gallery-caption,.college-gallery-card:focus-visible .gallery-zoom,.college-gallery-card:focus-visible .gallery-caption{opacity:1}
+.college-gallery-dialog{border:0;border-radius:16px;background:#092839;color:#fff;padding:16px;width:min(94vw,1000px);max-height:94dvh;overflow:auto}
+.college-gallery-dialog::backdrop{background:#071b27db}
+.college-gallery-dialog>img{display:block;width:100%;height:min(70dvh,650px);object-fit:contain}
+.gallery-close{position:absolute;right:20px;top:20px;z-index:1}
+.gallery-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:center;padding-top:10px}
+.gallery-controls button,.gallery-close{border:0;border-radius:50%;width:40px;height:40px;background:#fff;color:#092839;font-size:1.5rem;cursor:pointer}
+@media(max-width:900px){.college-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.college-gallery-grid{grid-template-columns:1fr}.gallery-zoom{opacity:1}}
+@media(prefers-reduced-motion:reduce){.college-gallery-card img,.gallery-zoom,.gallery-caption{transition:none}}

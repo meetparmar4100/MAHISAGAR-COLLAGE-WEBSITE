@@ -35,6 +35,7 @@ export default defineConfig({
         ),
         committees: fileURLToPath(new URL("./committees/index.html", import.meta.url)),
         infrastructure: fileURLToPath(new URL("./infrastructure/index.html", import.meta.url)),
+        galleryCollege: fileURLToPath(new URL("./gallery/college-side/index.html", import.meta.url)),
         home: fileURLToPath(new URL("./index.html", import.meta.url)),
         about: fileURLToPath(new URL("./about-college/index.html", import.meta.url)),
       },
