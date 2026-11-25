@@ -1,3 +1,4 @@
+import { EventsPage } from "./EventsPage.jsx";
 import { CollegeGallery } from "./CollegeGallery.jsx";
 import { CommitteesPage } from "./CommitteesPage.jsx";
 import { InfrastructurePage } from "./InfrastructurePage.jsx";
@@ -15,6 +16,7 @@ function App() {
   const [, slug, subpage] = location.pathname.split("/");
   const information = Object.hasOwn(aboutPages, slug) ? aboutPages[slug] : null;
   let page = <HomePage />;
+  if (slug === "gallery" && subpage === "events") page = <EventsPage />;
   if (slug === "gallery" && subpage === "college-side") page = <CollegeGallery />;
   if (slug === "about-college") page = <AboutCollege />;
   if (information) page = <AboutInformation page={information} />;

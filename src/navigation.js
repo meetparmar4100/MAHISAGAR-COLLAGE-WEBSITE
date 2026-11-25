@@ -116,6 +116,7 @@ export const destinations = {
     Object.entries(academicPages).map(([slug, page]) => [page.title, `/academics/${slug}/`]),
   ),
   ...Object.fromEntries(Object.entries(aboutPages).map(([slug, page]) => [page.title, `/${slug}/`])),
+  Events: "/gallery/events/",
   "College Side": "/gallery/college-side/",
   "About College": "/about-college/",
   "Contact Us": "#contact",
