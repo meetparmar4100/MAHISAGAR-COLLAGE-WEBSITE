@@ -195,14 +195,6 @@ export function Header() {
                 onTopic={setTopic}
               />
             ))}
-            <MenuGroup
-              title="New Admission Info."
-              label={<span className="compact-nav-label">New Admission<br />Info.</span>}
-              entries={menus["New Admission Info."]}
-              topLevel
-              onOpen={closeGroups}
-              onTopic={setTopic}
-            />
             <button
               type="button"
               className="topic-link"
