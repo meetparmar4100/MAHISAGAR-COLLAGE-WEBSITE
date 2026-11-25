@@ -1958,3 +1958,22 @@ html:has(.home-sections) {
 .nmc-information-table tbody tr:last-child>*{border-bottom:0}
 .nmc-information-table .nmc-answer{background:transparent}
 @media(max-width:760px){.nmc-information-content.wrap{width:calc(100% - 24px);padding-block:12px 24px}.nmc-information-table{font-size:13px;min-width:600px}.nmc-information-table thead th,.nmc-information-table tbody th,.nmc-information-table tbody td{padding:9px 10px}.nmc-information-table tbody tr{height:46px}}
+
+/* Reference-style NMC disclosure table; independent of global table styles. */
+.nmc-information-page{background:#faf9f6}
+.nmc-information-content.wrap{width:min(1390px,calc(100% - 48px));max-width:none;padding-block:24px 40px;margin-inline:auto}
+.nmc-section-heading{display:table;margin:0 0 24px;padding:0 0 10px;border-bottom:2px solid #db8b27;color:#b96708;font:650 1.08rem/1.4 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.025em}
+.nmc-information-box{padding:0!important;border:1px solid #c8d4e0;border-radius:10px;background:white;overflow-x:auto;box-shadow:none}
+.nmc-information-table.nmc-reference-table{display:table!important;width:100%;min-width:680px;table-layout:fixed;border-collapse:separate;border-spacing:0;font:400 15px/1.55 system-ui,sans-serif;color:#142d40}
+.nmc-reference-table thead{display:table-header-group!important;background:#f3f6f8;color:#142d40}
+.nmc-reference-table tbody{display:table-row-group!important}
+.nmc-reference-table tr{display:table-row!important;height:auto!important}
+.nmc-reference-table tr>th,.nmc-reference-table tr>td{display:table-cell!important;box-sizing:border-box;width:auto!important;padding:13px 18px!important;vertical-align:top!important;text-align:left!important;font-size:15px!important;line-height:1.55!important;font-weight:400!important;white-space:normal!important;overflow-wrap:break-word!important;word-break:normal!important;border:0!important;border-right:1px solid #c8d4e0!important;border-bottom:1px solid #c8d4e0!important}
+.nmc-reference-table thead tr>th{font-weight:650!important;background:#f3f6f8!important;color:#142d40!important;vertical-align:middle!important}
+.nmc-reference-table tr>*:first-child{text-align:center!important;padding-inline:8px!important}
+.nmc-reference-table tr>*:last-child{border-right:0!important}
+.nmc-reference-table tbody tr:last-child>*{border-bottom:0!important}
+.nmc-reference-table tbody tr:nth-child(odd)>*{background:#fff!important}
+.nmc-reference-table tbody tr:nth-child(even)>*{background:#f7f9fa!important}
+.nmc-reference-table tbody .nmc-answer{min-height:44px}
+@media(max-width:760px){.nmc-information-content.wrap{width:calc(100% - 24px);padding-block:16px 24px}.nmc-section-heading{font-size:.95rem;margin-bottom:16px}.nmc-reference-table tr>th,.nmc-reference-table tr>td{padding:11px 12px!important;font-size:13px!important}}
