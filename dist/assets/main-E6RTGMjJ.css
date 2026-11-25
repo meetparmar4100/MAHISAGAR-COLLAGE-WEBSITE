@@ -159,3 +159,25 @@
 .news-pdf-link{color:#00665f;font-weight:700;background:#edf6f3;text-decoration:none}
 .news-notifications-table .news-empty{text-align:center;padding:36px 24px;color:#526778}
 @media(max-width:600px){.news-notifications-table th,.news-notifications-table td{padding:12px}}
+
+/* Compact News layout: reserve the first viewport for document rows. */
+.events-wrap:has(.news-notifications){padding-block:12px 20px;width:min(1520px,calc(100% - 48px))}
+.events-wrap:has(.news-notifications) .events-tabs{margin:0 auto 12px;padding:4px;gap:4px}
+.events-wrap:has(.news-notifications) .events-tabs button{padding:8px clamp(14px,2vw,26px);font-size:.875rem}
+.news-notifications{padding:0 0 12px}
+.news-notifications-intro{margin:0 auto 14px;max-width:1000px}
+.news-notifications-kicker{font-size:.7rem;line-height:1.2}
+.news-notifications-intro h2{font-size:clamp(1.25rem,2vw,1.85rem);line-height:1.15;margin:5px 0}
+.news-notifications-intro p{font-size:.85rem;line-height:1.4;margin:0}
+.news-notifications-table{font-size:.82rem;table-layout:auto}
+.news-notifications-table th{padding:9px 12px;font-size:.78rem}
+.news-notifications-table td{padding:7px 12px;line-height:1.25}
+.news-notifications-table th:nth-child(1){width:7%}
+.news-notifications-table th:nth-child(2){width:12%}
+.news-notifications-table th:nth-child(4){width:17%}
+.news-notifications-table th:nth-child(5){width:17%}
+.news-row-number{width:24px;height:24px}
+.news-notice-number,.news-pdf-pending,.news-pdf-link{padding:4px 7px;font-size:.72rem}
+.news-notifications-table .news-empty{padding:20px 16px}
+@media(min-width:761px) and (max-height:850px){.events-wrap:has(.news-notifications){padding-top:8px}.events-wrap:has(.news-notifications) .events-tabs{margin-bottom:8px}.news-notifications-intro{margin-bottom:10px}.news-notifications-intro p{font-size:.8rem}.news-notifications-table td{padding-block:5px}}
+@media(max-width:600px){.events-wrap:has(.news-notifications){width:calc(100% - 24px)}.news-notifications-table th,.news-notifications-table td{padding:8px}.events-wrap:has(.news-notifications) .events-tabs button{padding:8px 12px}}
