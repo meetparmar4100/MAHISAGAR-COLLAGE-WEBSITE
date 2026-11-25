@@ -135,3 +135,27 @@
 .event-detail-viewer{width:min(94vw,1100px);max-height:94dvh;background:#101c2e;border:0;border-radius:14px;padding:16px}
 .event-detail-viewer img{width:100%;max-height:82dvh;object-fit:contain}.event-detail-viewer button{position:absolute;right:20px;top:20px;width:36px;height:36px;font-size:1.4rem}.event-detail-viewer::backdrop{background:#071b27dc}
 @media(max-width:850px){.event-detail-layout{grid-template-columns:1fr}}@media(max-width:550px){.event-detail-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.event-detail-slider{padding-inline:35px}.event-slide-prev,.event-slide-next{width:28px;height:28px}.event-slide-prev{left:4px}.event-slide-next{right:4px}}
+
+.news-notifications{padding:clamp(12px,2vw,28px) 0 32px}
+.news-notifications-intro{text-align:center;max-width:780px;margin:0 auto clamp(24px,3vw,44px)}
+.news-notifications-kicker{display:inline-flex;align-items:center;gap:14px;color:#a65a10;letter-spacing:.18em;font-size:.78rem;font-weight:750;text-transform:uppercase}
+.news-notifications-kicker::before,.news-notifications-kicker::after{content:"";width:42px;height:1px;background:#e0ad69}
+.news-notifications-intro h2{font:750 clamp(1.6rem,3vw,2.45rem)/1.2 system-ui,sans-serif;letter-spacing:-.025em;color:#092839;margin:12px 0}
+.news-notifications-intro p{color:#435969;line-height:1.65;margin:0}
+.news-table-scroll{overflow-x:auto;border-radius:15px;border:1px solid #dce5e5;background:white;box-shadow:0 4px 14px #0928390c}
+.news-notifications-table{width:100%;min-width:760px;border-collapse:collapse;text-align:left;font-size:.9rem}
+.news-notifications-table thead{background:#092839;color:white;border-bottom:2px solid #d7a45a}
+.news-notifications-table th{padding:16px 18px;white-space:nowrap;font-size:.85rem;font-weight:750}
+.news-notifications-table td{padding:18px;border-bottom:1px solid #e8eded;color:#365866}
+.news-notifications-table tbody tr:last-child td{border-bottom:0}
+.news-notifications-table tbody tr:hover{background:#f7faf9}
+.news-notifications-table th:first-child,.news-notifications-table td:first-child,.news-notifications-table th:last-child,.news-notifications-table td:last-child{text-align:center}
+.news-notifications-table td:nth-child(2){white-space:nowrap}
+.news-notice-title{font-weight:650;color:#092839!important}
+.news-row-number{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#eef3f4;border:1px solid #dce5e5}
+.news-notice-number,.news-pdf-pending,.news-pdf-link{display:inline-block;border:1px solid #dce5e5;border-radius:8px;padding:6px 10px;white-space:nowrap;font-size:.78rem}
+.news-notice-number{background:#f5f8f8;font-family:monospace}
+.news-pdf-pending{background:#f7f8f8;color:#637483}
+.news-pdf-link{color:#00665f;font-weight:700;background:#edf6f3;text-decoration:none}
+.news-notifications-table .news-empty{text-align:center;padding:36px 24px;color:#526778}
+@media(max-width:600px){.news-notifications-table th,.news-notifications-table td{padding:12px}}
