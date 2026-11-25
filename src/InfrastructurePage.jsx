@@ -3,13 +3,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { infrastructurePages } from "./infrastructurePages.js";
 import { Footer } from "./Footer.jsx";
 
-const photos = [
-  "/infrastructure-images/classes-1.webp",
-  "/infrastructure-images/classes-2.webp",
-  "/infrastructure-images/classes-3.webp",
-];
+const photoNumbers = [1, 2, 3];
 
-function ClassroomSection() {
+function InfrastructureSection({ slug, page }) {
+  const isClassroom = slug === "classes";
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(
     () => !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
@@ -18,7 +15,7 @@ function ClassroomSection() {
   useEffect(() => {
     if (!playing) return;
     const timer = window.setInterval(() => {
-      setIndex((current) => (current + 1) % photos.length);
+      setIndex((current) => (current + 1) % photoNumbers.length);
     }, 5000);
     return () => window.clearInterval(timer);
   }, [playing]);
@@ -29,28 +26,41 @@ function ClassroomSection() {
   }
 
   return (
-    <section className="classes-layout infrastructure-section" id="classes" aria-labelledby="classes-heading">
-          <div className="classes-copy">
-            <h2 id="classes-heading">Our <span>Classes</span></h2>
-            <p>Classroom learning for the proposed medical college in Mahisagar.</p>
-            <ul>
-              <li>Lectures on core medical subjects</li>
-              <li>Teaching demonstrations to connect theory with practice</li>
-              <li>Group discussions and collaborative learning</li>
-            </ul>
-          </div>
-          <figure className="classes-gallery" aria-label="Classroom photo slideshow">
-            <img key={index} src={photos[index]} alt={`Classroom reference photo ${index + 1} of ${photos.length}`} width="800" height="480" />
-            <figcaption>Illustrative photos. Mahisagar classroom photos will be added when available.</figcaption>
-            <div className="classes-controls" aria-label="Photo controls" role="group">
-              <button type="button" onClick={() => setPlaying(!playing)}>{playing ? "Pause" : "Play"}</button>
-              {photos.map((photo, number) => (
-                <button key={photo} type="button" aria-label={`Show photo ${number + 1}`} aria-pressed={index === number} onClick={() => selectPhoto(number)}>
-                  {number + 1}
-                </button>
-              ))}
-            </div>
-          </figure>
+    <section className="classes-layout infrastructure-section" id={slug} aria-labelledby={`${slug}-heading`}>
+      <div className="classes-copy">
+        <h2 id={`${slug}-heading`}>{isClassroom ? <>Our <span>Classes</span></> : page.title}</h2>
+        <p>{isClassroom ? "Classroom learning for the proposed medical college in Mahisagar." : page.intro}</p>
+        {isClassroom && (
+          <ul>
+            <li>Lectures on core medical subjects</li>
+            <li>Teaching demonstrations to connect theory with practice</li>
+            <li>Group discussions and collaborative learning</li>
+          </ul>
+        )}
+      </div>
+      <figure className="classes-gallery" aria-label={`${page.title} photo slideshow`}>
+        <img
+          key={index}
+          src={`/infrastructure-images/${page.imagePrefix ?? slug}-${photoNumbers[index]}.webp`}
+          alt={`${page.imageLabel} ${index + 1} of ${photoNumbers.length}`}
+          width="800"
+          height="480"
+          loading={isClassroom ? undefined : "lazy"}
+        />
+        <figcaption>
+          {isClassroom
+            ? "Illustrative photos. Mahisagar classroom photos will be added when available."
+            : "Illustrative photos. Mahisagar campus photos will be added when available."}
+        </figcaption>
+        <div className="classes-controls" aria-label={`${page.title} photo controls`} role="group">
+          <button type="button" onClick={() => setPlaying(!playing)}>{playing ? "Pause" : "Play"}</button>
+          {photoNumbers.map((number, photoIndex) => (
+            <button key={number} type="button" aria-label={`Show photo ${number}`} aria-pressed={index === photoIndex} onClick={() => selectPhoto(photoIndex)}>
+              {number}
+            </button>
+          ))}
+        </div>
+      </figure>
     </section>
   );
 }
@@ -96,26 +106,8 @@ export function InfrastructurePage({ initialSection }) {
             ))}
           </nav>
           <div className="infrastructure-content" ref={content}>
-            <ClassroomSection />
-            {Object.entries(infrastructurePages).filter(([slug]) => slug !== "classes").map(([slug, page]) => (
-              <section key={slug} id={slug} className="infrastructure-section" aria-labelledby={`${slug}-heading`}>
-                <h2 id={`${slug}-heading`}>{page.title}</h2>
-                <p>{page.intro}</p>
-                <figure className="infrastructure-photos">
-                  <div>
-                    {[1, 2, 3].map((number) => (
-                      <img
-                        key={number}
-                        src={`/infrastructure-images/${page.imagePrefix ?? slug}-${number}.webp`}
-                        alt={`${page.imageLabel} ${number}`}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    ))}
-                  </div>
-                  <figcaption>Illustrative photos. Mahisagar campus photos will be added when available.</figcaption>
-                </figure>
-              </section>
+            {Object.entries(infrastructurePages).map(([slug, page]) => (
+              <InfrastructureSection key={slug} slug={slug} page={page} />
             ))}
           </div>
         </div>

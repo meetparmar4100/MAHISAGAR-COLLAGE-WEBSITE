@@ -1,5 +1,5 @@
 import React from "react";
-import collegeLogo from "./medical-college-logo.png";
+import collegeLogo from "./college-wordmark.png";
 import admissionQr from "./admission-contact-qr.png";
 
 const phone = "tel:+918000466422";
@@ -12,7 +12,7 @@ export function Footer() {
       <div className="wrap footer-grid">
         <div>
           <a className="footer-logo" href="/">
-            <img src={collegeLogo} width="1254" height="1254" alt="Swaminarayan Medical College, Mahisagar" loading="lazy" />
+            <img src={collegeLogo} width="2048" height="744" alt="Swaminarayan Medical College, Mahisagar" loading="lazy" />
           </a>
           <strong>Swaminarayan Medical College, Mahisagar</strong>
           <address className="footer-address">

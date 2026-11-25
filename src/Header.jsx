@@ -1,14 +1,14 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import collegeLogo from "./medical-college-logo.png";
+import collegeLogo from "./college-wordmark.png";
 import { destinations, menus } from "./navigation.js";
 
-const hoverQuery = "(min-width: 1161px) and (hover: hover) and (pointer: fine)";
+const hoverQuery = "(min-width: 1321px) and (hover: hover) and (pointer: fine)";
 
 function isMouseHover(event) {
   return event.pointerType === "mouse" && window.matchMedia(hoverQuery).matches;
 }
 
-function MenuGroup({ title, entries, topLevel = false, onOpen, onTopic }) {
+function MenuGroup({ title, entries, topLevel = false, onOpen, onTopic, label }) {
   const groupRef = useRef(null);
   const className = topLevel
     ? title === "Teaching Staff Details"
@@ -42,7 +42,7 @@ function MenuGroup({ title, entries, topLevel = false, onOpen, onTopic }) {
         const group = event.currentTarget;
         if (event.target !== group || !group.open) return;
         onOpen?.(group);
-        if (!topLevel && window.matchMedia("(min-width: 1161px)").matches) {
+        if (!topLevel && window.matchMedia("(min-width: 1321px)").matches) {
           const submenu = group.lastElementChild;
           const bounds = group.getBoundingClientRect();
           const viewport = document.documentElement.clientWidth;
@@ -54,9 +54,9 @@ function MenuGroup({ title, entries, topLevel = false, onOpen, onTopic }) {
       }}
     >
       <summary onPointerEnter={openOnHover}>
-        {title === "Infrastructure" ? (
-          <a className="infrastructure-menu-link" href={destinations.Infrastructure}>{title}</a>
-        ) : title}
+        {!topLevel && destinations[title] ? (
+          <a className="nav-group-link" href={destinations[title]}>{title}</a>
+        ) : label ?? title}
       </summary>
       <ul className="submenu">
         {entries.map((entry) => {
@@ -162,8 +162,8 @@ export function Header() {
             <img
               src={collegeLogo}
               alt="Swaminarayan Medical College, Mahisagar"
-              width={1254}
-              height={1254}
+              width={2048}
+              height={744}
             />
           </a>
           <button
@@ -197,6 +197,7 @@ export function Header() {
             ))}
             <MenuGroup
               title="New Admission Info."
+              label={<span className="compact-nav-label">New Admission<br />Info.</span>}
               entries={menus["New Admission Info."]}
               topLevel
               onOpen={closeGroups}
@@ -208,15 +209,15 @@ export function Header() {
               onPointerEnter={clearOnHover}
               onClick={() => setTopic("Info As Per NMC")}
             >
-              Info As Per NMC
+              <span className="compact-nav-label">Info As Per<br />NMC</span>
             </button>
             <button
               type="button"
               className="topic-link"
               onPointerEnter={clearOnHover}
-              onClick={() => setTopic("PSM Hospital Details")}
+              onClick={() => setTopic("Hospital Details")}
             >
-              PSM Hospital Details
+              <span className="compact-nav-label">Hospital<br />Details</span>
             </button>
           </nav>
         </div>

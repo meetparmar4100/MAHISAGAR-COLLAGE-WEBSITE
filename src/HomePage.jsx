@@ -1,60 +1,11 @@
-import { useHomeSectionWheel } from "./useHomeSectionWheel.js";
 import { TeachingMethodology } from "./TeachingMethodology.jsx";
 import { Footer } from "./Footer.jsx";
-import React, { useEffect, useRef, useState } from "react";
-import campusVideo from "./campus-banner.mp4";
-import campusPoster from "./campus-poster.webp";
+import React, { useEffect, useRef } from "react";
+import homeBanner from "./home-banner.jpg";
 import mbbsLab from "./mbbs-lab.webp";
-
-function CampusVideo() {
-  const video = useRef(null);
-  const [playing, setPlaying] = useState(false);
-
-  useEffect(() => {
-    const element = video.current;
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    function syncPlayback() {
-      if (motion.matches) element.pause();
-      else element.play().catch(() => setPlaying(false));
-    }
-
-    syncPlayback();
-    motion.addEventListener("change", syncPlayback);
-    return () => motion.removeEventListener("change", syncPlayback);
-  }, []);
-
-  function togglePlayback() {
-    const element = video.current;
-    if (element.paused) element.play().catch(() => setPlaying(false));
-    else element.pause();
-  }
-
-  return (
-    <>
-      <video
-        ref={video}
-        className="campus-video"
-        src={campusVideo}
-        poster={campusPoster}
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-hidden="true"
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
-      />
-      <button className="video-toggle" type="button" onClick={togglePlayback}>
-        {playing ? "Pause banner video" : "Play banner video"}
-      </button>
-    </>
-  );
-}
 
 export function HomePage() {
   const home = useRef(null);
-  useHomeSectionWheel(home);
 
   useEffect(() => {
     if (!("IntersectionObserver" in window)) return;
@@ -73,43 +24,33 @@ export function HomePage() {
     <>
       <main id="main" className="home-sections" ref={home}>
         <div className="home-first-screen">
-          <section className="hero" aria-labelledby="college-home-heading">
-            <CampusVideo />
-            <div className="wrap">
-              <div className="location">Mahisagar, Gujarat</div>
-              <h1 id="college-home-heading">Swaminarayan<br />Medical College</h1>
-              <p>
-                Explore academic information, admissions and student resources in
-                one place.
-              </p>
-            </div>
-            <nav className="quick wrap" aria-label="Quick links">
-              <a href="#mbbs-eligibility">
-                <span className="icon" aria-hidden="true">
-                  ✎
-                </span>{" "}
-                Eligibility
-              </a>
-              <a href="#teaching-methodology">
-                <span className="icon" aria-hidden="true">
-                  ≡
-                </span>{" "}
-                Teaching methodology
-              </a>
-              <a href="#mbbs-benefits">
-                <span className="icon" aria-hidden="true">
-                  ◷
-                </span>{" "}
-                Benefits
-              </a>
-              <a href="#mbbs-heading">
-                <span className="icon" aria-hidden="true">
-                  ✉
-                </span>{" "}
-                About MBBS
-              </a>
-            </nav>
-          </section>
+          <img className="home-banner-image" src={homeBanner} alt="Group photo at the college" width={2048} height={932} fetchPriority="high" />
+          <nav className="quick wrap" aria-label="Quick links">
+            <a href="#mbbs-eligibility">
+              <span className="icon" aria-hidden="true">
+                ✎
+              </span>{" "}
+              Eligibility
+            </a>
+            <a href="#teaching-methodology">
+              <span className="icon" aria-hidden="true">
+                ≡
+              </span>{" "}
+              Teaching methodology
+            </a>
+            <a href="#mbbs-benefits">
+              <span className="icon" aria-hidden="true">
+                ◷
+              </span>{" "}
+              Benefits
+            </a>
+            <a href="#mbbs-heading">
+              <span className="icon" aria-hidden="true">
+                ✉
+              </span>{" "}
+              About MBBS
+            </a>
+          </nav>
           <p className="wrap nmc-notice">
             Swaminarayan Medical College, Mahisagar has applied to the National
             Medical Commission (NMC) for MBBS seats. Approval is pending.

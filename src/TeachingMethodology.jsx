@@ -1,39 +1,22 @@
 import React, { useState } from "react";
 
-const programs = {
-  UG: [
-    {
-      name: "MBBS",
-      degree: "Bachelor of Medicine and Bachelor of Surgery",
-      methods: "Classroom instruction, laboratory demonstrations and supervised clinical learning connect medical theory with patient care.",
-    },
-  ],
-  PG: [
-    {
-      name: "MD",
-      degree: "Doctor of Medicine",
-      methods: "Specialty teaching can include supervised clinical work, case discussions, seminars and research.",
-    },
-    {
-      name: "MS",
-      degree: "Master of Surgery",
-      methods: "Surgical training can include supervised clinical and procedural experience, case review and research.",
-    },
-  ],
-};
+const programs = [
+  {
+    name: "MBBS",
+    degree: "Bachelor of Medicine and Bachelor of Surgery",
+    methods: "Classroom instruction, laboratory demonstrations and supervised clinical learning connect medical theory with patient care.",
+  },
+];
 
 export function TeachingMethodology() {
-  const [level, setLevel] = useState("UG");
   const [query, setQuery] = useState("");
   const [suggestionsOpen, setSuggestionsOpen] = useState(false);
   const term = query.trim().toLowerCase();
-  const suggestions = Object.entries(programs).flatMap(([category, courses]) =>
-    courses.filter(({ name, degree }) => term && `${name} ${degree}`.toLowerCase().includes(term))
-      .map((course) => ({ ...course, category })),
+  const suggestions = programs.filter(({ name, degree }) =>
+    term && `${name} ${degree}`.toLowerCase().includes(term),
   );
 
   function selectCourse(course) {
-    setLevel(course.category);
     setQuery("");
     setSuggestionsOpen(false);
     requestAnimationFrame(() => {
@@ -89,17 +72,10 @@ export function TeachingMethodology() {
           </div>
         </div>
         <div>
-          <div className="methodology-tabs" role="group" aria-label="Program level">
-            <button type="button" aria-pressed={level === "UG"} onClick={() => setLevel("UG")}>
-              Undergraduate (UG)
-            </button>
-            <button type="button" aria-pressed={level === "PG"} onClick={() => setLevel("PG")}>
-              Postgraduate (PG)
-            </button>
-          </div>
+          <p className="methodology-level">Undergraduate (UG)</p>
           <p className="methodology-status">Program availability and seat intake are subject to approval.</p>
           <ul className="methodology-programs" aria-live="polite">
-            {programs[level].map(({ name, degree, methods }) => (
+            {programs.map(({ name, degree, methods }) => (
               <li key={name} id={`methodology-course-${name}`} tabIndex={-1}>
                 <h3>{name}</h3>
                 <strong>{degree}</strong>

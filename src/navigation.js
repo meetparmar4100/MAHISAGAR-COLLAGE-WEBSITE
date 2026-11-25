@@ -33,17 +33,7 @@ export const menus = {
   ],
   Academics: academicEntries.filter((entry) => !Array.isArray(entry)),
   College: [
-    [
-      "Committees",
-      [
-        "College Council",
-        "Gender Harassment Committee",
-        "Anti-ragging Committee",
-        "Ethics Committee",
-        "Medical Education",
-        "Curriculum Committee",
-      ],
-    ],
+    "Committees",
     [
       "Infrastructure",
       [
@@ -105,10 +95,18 @@ export const academicPages = comingSoonPages(
 );
 
 export const committeePages = comingSoonPages(
-  menus.College.find((entry) => entry[0] === "Committees")[1],
+  [
+    "College Council",
+    "Gender Harassment Committee",
+    "Anti-ragging Committee",
+    "Ethics Committee",
+    "Medical Education",
+    "Curriculum Committee",
+  ],
 );
 
 export const destinations = {
+  Committees: "/committees/",
   Infrastructure: "/infrastructure/",
   ...Object.fromEntries(
     Object.entries(committeePages).map(([slug, page]) => [page.title, `/committees/${slug}/`]),

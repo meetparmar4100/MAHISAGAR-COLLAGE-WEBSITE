@@ -33,6 +33,7 @@ export default defineConfig({
             fileURLToPath(new URL(`./committees/${slug}/index.html`, import.meta.url)),
           ]),
         ),
+        committees: fileURLToPath(new URL("./committees/index.html", import.meta.url)),
         infrastructure: fileURLToPath(new URL("./infrastructure/index.html", import.meta.url)),
         home: fileURLToPath(new URL("./index.html", import.meta.url)),
         about: fileURLToPath(new URL("./about-college/index.html", import.meta.url)),

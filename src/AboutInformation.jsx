@@ -2,12 +2,21 @@ import { PageHeading } from "./PageHeading.jsx";
 import React from "react";
 import { Footer } from "./Footer.jsx";
 
-export function AboutInformation({ page }) {
+export function AboutInformation({ page, parent }) {
   return (
     <>
       <main id="main">
-        <PageHeading title={page.title} parent={!page.comingSoon ? { href: "/about-college/", label: "About Us" } : undefined} />
+        <PageHeading title={page.title} parent={parent ?? (!page.comingSoon && !page.links ? { href: "/about-college/", label: "About Us" } : undefined)} />
         <div className="wrap about-information">
+          {page.links && (
+            <nav aria-label="Committees">
+              <ul>
+                {page.links.map(({ title, href }) => (
+                  <li key={href}><a href={href}>{title}</a></li>
+                ))}
+              </ul>
+            </nav>
+          )}
           {page.comingSoon && (
             <section className="academic-coming-soon">
               <span aria-hidden="true">📚</span>

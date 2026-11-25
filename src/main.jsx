@@ -1,3 +1,4 @@
+import { CommitteesPage } from "./CommitteesPage.jsx";
 import { InfrastructurePage } from "./InfrastructurePage.jsx";
 import React from "react";
 import { createRoot } from "react-dom/client";
@@ -5,7 +6,7 @@ import { HomePage } from "./HomePage.jsx";
 import { AboutCollege } from "./AboutCollege.jsx";
 import { AboutInformation } from "./AboutInformation.jsx";
 import { aboutPages } from "./aboutPages.js";
-import { academicPages, committeePages } from "./navigation.js";
+import { academicPages, committeePages, destinations } from "./navigation.js";
 import { Header } from "./Header.jsx";
 import "./styles.css";
 
@@ -18,8 +19,11 @@ function App() {
   if (slug === "academics" && Object.hasOwn(academicPages, subpage)) {
     page = <AboutInformation page={academicPages[subpage]} />;
   }
-  if (slug === "committees" && Object.hasOwn(committeePages, subpage)) {
-    page = <AboutInformation page={committeePages[subpage]} />;
+  if (slug === "committees") {
+    if (!subpage) page = <CommitteesPage />;
+    else if (Object.hasOwn(committeePages, subpage)) {
+      page = <AboutInformation page={committeePages[subpage]} parent={{ href: destinations.Committees, label: "Committees" }} />;
+    }
   }
   if (slug === "infrastructure") page = <InfrastructurePage initialSection={subpage} />;
   return (
