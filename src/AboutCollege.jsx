@@ -1,3 +1,4 @@
+import { PageHeading } from "./PageHeading.jsx";
 import React from "react";
 import { Footer } from "./Footer.jsx";
 
@@ -5,13 +6,7 @@ export function AboutCollege() {
   return (
     <>
       <main id="main">
-        <section className="about-feature-hero" aria-labelledby="about-feature-title">
-          <div className="wrap">
-            <nav aria-label="Breadcrumb"><a href="/">Home</a> / <span aria-current="page">About College</span></nav>
-            <h1 id="about-feature-title">Excellence in Healthcare Education</h1>
-            <p>Dedicated to nurturing the next generation of medical professionals</p>
-          </div>
-        </section>
+        <PageHeading title="Excellence in Healthcare Education" />
         <section className="about-feature-body" aria-labelledby="college-profile-title">
           <div className="wrap">
             <div className="about-feature-grid">
