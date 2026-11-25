@@ -6,6 +6,7 @@ import { academicPages, committeePages } from "./src/navigation.js";
 import { aboutPages } from "./src/aboutPages.js";
 
 export default defineConfig({
+  plugins: [],
   build: {
     rollupOptions: {
       input: {
