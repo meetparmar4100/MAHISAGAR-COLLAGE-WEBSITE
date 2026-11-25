@@ -199,3 +199,22 @@
 .nmc-information-table tbody tr:last-child>*{border-bottom:0}
 .nmc-information-table .nmc-answer{min-height:42px}
 @media(max-width:760px){.nmc-information-table{font-size:.82rem}.nmc-information-table tbody th,.nmc-information-table tbody td,.nmc-information-table thead th{padding:10px}.nmc-information-content{padding-block:12px 24px}}
+
+/* NMC disclosure: apply column widths to header cells only, never row headings. */
+.nmc-information-content.wrap{width:min(1380px,calc(100% - 48px));max-width:none;margin-inline:auto;padding-block:18px 30px}
+.nmc-information-box{width:100%;overflow-x:auto;border-radius:12px}
+.nmc-information-table{width:100%;min-width:600px;table-layout:fixed;border-collapse:collapse;border-spacing:0;font-size:14px;line-height:1.45}
+.nmc-information-table thead th:first-child{width:8%}
+.nmc-information-table thead th:nth-child(2){width:50%}
+.nmc-information-table thead th:nth-child(3){width:42%}
+.nmc-information-table tbody th:nth-child(2){width:auto}
+.nmc-information-table thead th,.nmc-information-table tbody th,.nmc-information-table tbody td{box-sizing:border-box;vertical-align:middle;padding:11px 16px;text-align:left;white-space:normal;overflow-wrap:break-word;word-break:normal}
+.nmc-information-table thead th:first-child,.nmc-information-table tbody td:first-child{text-align:center;font-variant-numeric:tabular-nums}
+.nmc-information-table thead th{font-weight:650;border-bottom:2px solid #d7a45a}
+.nmc-information-table tbody tr{height:52px}
+.nmc-information-table tbody th,.nmc-information-table tbody td{font-weight:400;border-bottom:1px solid #dce6e2;border-right:1px solid #dce6e2}
+.nmc-information-table tr>*:last-child{border-right:0}
+.nmc-information-table tbody tr:nth-child(even){background:#f4f8f7}
+.nmc-information-table tbody tr:last-child>*{border-bottom:0}
+.nmc-information-table .nmc-answer{background:transparent}
+@media(max-width:760px){.nmc-information-content.wrap{width:calc(100% - 24px);padding-block:12px 24px}.nmc-information-table{font-size:13px;min-width:600px}.nmc-information-table thead th,.nmc-information-table tbody th,.nmc-information-table tbody td{padding:9px 10px}.nmc-information-table tbody tr{height:46px}}
