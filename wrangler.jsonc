@@ -4,6 +4,21 @@
   "assets": {
     "directory": "./dist",
     "html_handling": "force-trailing-slash",
-    "not_found_handling": "none"
-  }
+    "not_found_handling": "none",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/cms-data.json",
+      "/cms-uploads/*",
+      "/admin",
+      "/admin/*",
+      "/admin.html"
+    ]
+  },
+  "main": "cloudflare-worker.js",
+  "services": [
+    {
+      "binding": "ADMIN_CMS",
+      "service": "mahisagar-college-admin"
+    }
+  ]
 }
