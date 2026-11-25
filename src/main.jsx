@@ -43,4 +43,5 @@ function App() {
 
 if (new URLSearchParams(location.search).get("admin") === "1" || /^\/admin\/?$/.test(location.pathname)) { document.body.classList.add("cms-admin"); const mount=document.createElement("main"); mount.id="admin"; document.getElementById("root").replaceChildren(mount); } else createRoot(document.getElementById("root")).render(<App />);
 
-import(/* @vite-ignore */ "/cms.js");
+const cmsModuleUrl = "/cms.js";
+import(/* @vite-ignore */ cmsModuleUrl);
