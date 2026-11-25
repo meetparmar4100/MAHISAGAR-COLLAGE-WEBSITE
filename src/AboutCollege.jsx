@@ -16,7 +16,6 @@ export function AboutCollege() {
                 <h2 id="college-profile-title">Founded on Vision, Committed to Excellence</h2>
                 <p>Swaminarayan Medical College, Mahisagar is a proposed medical college in Lunawada, Gujarat. Our vision is to support medical education through classroom learning, practical training and an understanding of community health.</p>
                 <p>The proposed college site is on Charel Road, behind Cottage Hospital in Moti Charel. General Hospital, Lunawada is listed as a district hospital in Mahisagar.</p>
-                <a href="https://mahisagar.nic.in/health/">Mahisagar District Health Department</a>
               </div>
             </div>
             <aside className="about-feature-status" aria-labelledby="college-status-title">
