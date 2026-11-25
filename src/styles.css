@@ -1827,3 +1827,22 @@ html:has(.home-sections) {
 @media(max-width:900px){.events-grid{grid-template-columns:1fr 1fr}.events-intro{display:block}}
 @media(max-width:560px){.events-grid{grid-template-columns:1fr}.events-tabs{border-radius:18px}.events-tabs button{padding:9px 12px}.event-tile img{height:210px}}
 @media(prefers-reduced-motion:reduce){.event-tile{transition:none}}
+
+.events-accordion-stage{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,2fr);gap:clamp(20px,4vw,64px);align-items:center}
+.events-accordion-copy h2{font:750 clamp(1.8rem,3.3vw,3.5rem)/1.1 system-ui,sans-serif;color:#092839;margin:14px 0}
+.events-accordion-copy p{color:#435969;line-height:1.65}
+.events-accordion-action,.events-strip-details button{border:0;border-radius:24px;background:#00665f;color:white;padding:12px 20px;font-weight:750;cursor:pointer}
+.events-accordion-track{display:flex;gap:9px;height:clamp(380px,36vw,520px);min-width:0}
+.events-accordion-card{position:relative;display:flex;flex-direction:column;flex:1 1 0;min-width:0;overflow:hidden;background:#092839;border:1px solid #b5c7c5;border-radius:22px;transition:flex-grow .38s cubic-bezier(.22,1,.36,1),box-shadow .25s}
+.events-accordion-card.is-active{flex-grow:4.8;border-color:#d4a75f;box-shadow:0 14px 30px #09283926}
+.events-strip-select{display:block;position:relative;flex:1;min-height:0;width:100%;padding:0;border:0;background:#092839;cursor:pointer;overflow:hidden}
+.events-strip-select img{display:block;width:100%;height:100%;object-fit:cover;filter:brightness(.65);transition:filter .25s}
+.events-accordion-card.is-active .events-strip-select img{filter:none}
+.events-strip-details{padding:14px;color:#fff;flex-shrink:0}
+.events-strip-details h3{font:700 clamp(1rem,1.4vw,1.35rem)/1.25 system-ui,sans-serif;color:#fff;margin:10px 0}
+.events-strip-details p{font-size:.82rem;color:#ffd18a;margin:0 0 12px}
+.events-strip-details button{background:#ffd18a;color:#092839;padding:9px 14px}
+.events-strip-select:focus-visible{outline:3px solid #ffd18a;outline-offset:-4px}
+@media(max-width:1050px){.events-accordion-stage{grid-template-columns:1fr}.events-accordion-track{height:420px}}
+@media(max-width:600px){.events-accordion-track{flex-direction:column;height:auto}.events-accordion-card{flex:none;height:68px;transition:height .3s}.events-accordion-card.is-active{flex:none;height:330px}}
+@media(prefers-reduced-motion:reduce){.events-accordion-card,.events-strip-select img{transition:none}}
